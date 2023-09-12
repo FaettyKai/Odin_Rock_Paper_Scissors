@@ -1,32 +1,24 @@
-function getRandom(x) {
-	choice = Math.floor(Math.random()*3) + 1;
-  return choice
+function number(x) {
+	x = Math.floor(Math.random() * 3) + 1
+  return x
 }
 
-function getComputerChoice(y) {
-	if(getRandom() === 1)
-  	y = "rock"
-  else if(getRandom() === 2)
-  	y = "paper"
-  else
+function computerSelection() {
+	if(number() === 1)
+  	y = "rock";
+  else if(number() === 2)
+  	y = "paper";
+  else 
   	y = "scissors"
-  return y
-}
-
-function playerSelection(x) {
-	selection = prompt("what is your selection?")
-  x = selection
+  return y;
 }
 
 
-function game(playerSelection, getComputerChoice) {
-	alert("Rock, Paper, Scissors. What's your move?")
-  playerSelection();
-  getComputerChoice();
-  if(playerSelection() === getComputerChoice())
-  	alert("It's a draw")
-  if(playerSelection() === "rock" && getComputerChoice() === "scissors")
-  	alert("you win this time")
+function playerSelection() {
+	x = prompt("what's your selection?")
+ 	if(x != "rock" || x != "paper" || x != "scissors")
+  	x = "error"
+  return x
 }
 
-console.log(getComputerChoice)
+console.log(playerSelection())
