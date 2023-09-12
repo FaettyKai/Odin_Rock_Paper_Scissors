@@ -3,22 +3,31 @@ function number(x) {
   return x
 }
 
-function computerSelection() {
+function cpuSelection(y) { 
 	if(number() === 1)
-  	y = "rock";
+  	y = "rock"
   else if(number() === 2)
-  	y = "paper";
+  	y = "paper"
   else 
   	y = "scissors"
-  return y;
+  return y
+}
+
+function player() {
+	z = prompt("what is your selection?")
+	if(z === "rock" || z === "paper" || z === "scissors")
+  	return z
+  else
+  	return alert("do you not know how to play?")
 }
 
 
-function playerSelection() {
-	x = prompt("what's your selection?")
- 	if(x != "rock" || x != "paper" || x != "scissors")
-  	x = "error"
-  return x
+function playRound(playerSelection, computerSelection) {
+  playerSelection = player()
+  computerSelection = cpuSelection()
+  if(playerSelection === computerSelection) 
+  	return alert("draw")
+  else if(playerSelection != computerSelection)
+  	return alert("no draw")
 }
 
-console.log(playerSelection())
