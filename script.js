@@ -1,36 +1,37 @@
-const rock = document.querySelector("#rock")
+const rock = document.querySelector("#fire")
 rock.addEventListener("click", () => {
-  r = "rock"
-  console.log(r)
+  f = "fire"
+  console.log(f)
   console.log(playGame())
-  return playGame() === r ? alert("draw")
-  :playGame() === "paper" ? alert("Hah. You suck.")
-  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  return playGame() === f ? alert("draw")
+  :playGame() === "water" ? alert("Hah. You suck.")
+  :playGame() === "grass" ? alert("Tch. You got lucky this time.")
   : alert("What you scared")
 })
 
-const paper = document.querySelector("#paper")
+const paper = document.querySelector("#grass")
 paper.addEventListener("click", () => {
-  p = "paper"
-  console.log(p)
+  g = "grass"
+  console.log(g)
   console.log(playGame())
-  return playGame() === p ? alert("draw")
-  :playGame() === "paper" ? alert("Hah. You suck.")
-  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  return playGame() === g ? alert("draw")
+  :playGame() === "fire" ? alert("Hah. You suck.")
+  :playGame() === "water" ? alert("Tch. You got lucky this time.")
   : alert("What you scared")
 })
 
-const scissors = document.querySelector("#scissors")
+const scissors = document.querySelector("#water")
 scissors.addEventListener("click", () => {
-  s = "scissors"
-  console.log(s)
+  w = "water"
+  console.log(w)
   console.log(playGame())
-  return playGame() === s ? alert("draw")
-  :playGame() === "paper" ? alert("Hah. You suck.")
-  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  return playGame() === w ? alert("draw")
+  :playGame() === "grass" ? alert("Hah. You suck.")
+  :playGame() === "fire" ? alert("Tch. You got lucky this time.")
   : alert("What you scared")
 })
 
+/*
 number = (x) => {
   x = Math.floor(Math.random() * 8) +1
   return x
@@ -41,6 +42,23 @@ cpu = (y) => {
   :number() === 3 || number() === 4 || number() === 5 ? y = "paper"
   :number() === 6 || number() === 7 || number() === 8 ? y = "scissors"
   : y = "rock"
+}
+*/
+
+function number() {
+  const x = Math.floor(Math.random() * 8) + 1;
+  return x;
+}
+
+function cpu() {
+  const randomChoice = number();
+  if (randomChoice === 1 || randomChoice === 2) {
+    return "fire";
+  } else if (randomChoice >= 3 && randomChoice <= 5) {
+    return "grass";
+  } else {
+    return "water";
+  }
 }
 
 var slideSource = document.getElementById("slideSource")
