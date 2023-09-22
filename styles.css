@@ -1,0 +1,18 @@
+
+#slideSource {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#slideSource.fade {
+    opacity: 1;
+}
+
+#game {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#game.fade {
+    opacity: 0;
+}

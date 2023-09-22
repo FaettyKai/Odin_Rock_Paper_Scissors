@@ -1,41 +1,56 @@
-function number(x) {
-	x = Math.floor(Math.random() * 3) + 1
+const rock = document.querySelector("#rock")
+rock.addEventListener("click", () => {
+  r = "rock"
+  console.log(r)
+  console.log(playGame())
+  return playGame() === r ? alert("draw")
+  :playGame() === "paper" ? alert("Hah. You suck.")
+  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  : alert("What you scared")
+})
+
+const paper = document.querySelector("#paper")
+paper.addEventListener("click", () => {
+  p = "paper"
+  console.log(p)
+  console.log(playGame())
+  return playGame() === p ? alert("draw")
+  :playGame() === "paper" ? alert("Hah. You suck.")
+  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  : alert("What you scared")
+})
+
+const scissors = document.querySelector("#scissors")
+scissors.addEventListener("click", () => {
+  s = "scissors"
+  console.log(s)
+  console.log(playGame())
+  return playGame() === s ? alert("draw")
+  :playGame() === "paper" ? alert("Hah. You suck.")
+  :playGame() === "scissors" ? alert("Tch. You got lucky this time.")
+  : alert("What you scared")
+})
+
+number = (x) => {
+  x = Math.floor(Math.random() * 8) +1
   return x
 }
 
-function cpuSelection(y) {
-	if(number() === 1)
-  	y = "rock"
-  else if(number() === 2)
-  	y = "paper"
-  else
-  	y = "scissors"
-  return y
+cpu = (y) => {
+  return number() === 1 || number() === 2 ? y = "rock"
+  :number() === 3 || number() === 4 || number() === 5 ? y = "paper"
+  :number() === 6 || number() === 7 || number() === 8 ? y = "scissors"
+  : y = "rock"
 }
 
-function player() {
-	z = prompt("What is your selection?")
-  l = z.toLowerCase()
-  return l
+var slideSource = document.getElementById("slideSource")
+
+document.getElementById("game").onclick = function () {
+  slideSource.classList.toggle("fade")
+  game.classList.toggle("fade")
 }
 
-function playRound(playerSelection, computerSelection) {
-  playerSelection = player()
-  computerSelection = cpuSelection()
-  console.log(playerSelection, computerSelection)
-  if(playerSelection === "rock" && computerSelection === "paper" ||
-  	 playerSelection === "paper" && computerSelection === "scissors" ||
-     playerSelection === "scissors" && computerSelection === "rock")
-     		return alert("Hah, you suck pleb")
-  else if(playerSelection === "rock" && computerSelection === "scissors" ||
-  	 playerSelection === "paper" && computerSelection === "rock" ||
-     playerSelection === "scissors" && computerSelection === "paper")
-     		return alert("tch. you got lucky this time")
-  else if(playerSelection === computerSelection)	
-   			return alert("draw. you're only delaying the inevitable")
-  else
-  			return alert("what? do you know how to play a child's game")
+playGame = (computerSelection) => {
+  computerSelection = cpu()
+  return computerSelection 
 }
-
-
-
